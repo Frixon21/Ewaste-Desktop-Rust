@@ -1,0 +1,23 @@
+[package]
+name = "ewaste-counter"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.88"
+
+[features]
+default = []
+extended-workflows = ["dep:argon2", "dep:rand_core"]
+
+[dependencies]
+eframe = { version = "0.33.3", default-features = false, features = ["default_fonts", "glow"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+libloading = "0.8"
+argon2 = { version = "0.6", optional = true }
+rand_core = { version = "0.6", features = ["getrandom"], optional = true }
+sha2 = "0.11.1"
+zeroize = { version = "=1.8.2", default-features = false, features = ["alloc"] }
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.61.2", features = ["Win32_Foundation", "Win32_Graphics_Gdi", "Win32_Graphics_Printing", "Win32_Storage_Xps"] }
+

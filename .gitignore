@@ -1,0 +1,7 @@
+/target/
+/.toolchain/
+/rustup-init.exe
+/dist/
+
+/data/
+/.verification/
